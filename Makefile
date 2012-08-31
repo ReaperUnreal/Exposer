@@ -10,11 +10,14 @@ all: $(EXECUTABLE)
 debug: CFLAGS+=-g
 debug: $(EXECUTABLE)
 
-$(EXECUTABLE): EasyBMP.o main.o
-	$(CC) $(LFLAGS) EasyBMP.o main.o -o $(EXECUTABLE)
+$(EXECUTABLE): EasyBMP.o image.o main.o
+	$(CC) $(LFLAGS) EasyBMP.o image.o main.o -o $(EXECUTABLE)
 
 EasyBMP.o: EasyBMP.cpp
 	$(CC) $(EASY_BMP_CFLAGS) EasyBMP.cpp
+
+image.o: image.cpp
+	$(CC) $(CFLAGS) image.cpp
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp

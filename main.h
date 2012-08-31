@@ -91,4 +91,6 @@ inline float fmax(float a, float b)
    return (a > b) ? a : b;
 }
 
+#include "util.h"
+#include "image.h"
 #endif
