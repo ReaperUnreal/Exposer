@@ -25,8 +25,8 @@ void Image::FromRawFile(const char *filename)
    }
 
    //load width and height first
-   file >> width;
-   file >> height;
+   file.read(reinterpret_cast<char *>(&width), 4);
+   file.read(reinterpret_cast<char *>(&height), 4);
    printf("Width: %d, Height: %d\n", width, height);
 
    //create the data
@@ -34,10 +34,7 @@ void Image::FromRawFile(const char *filename)
    data = new float[num];
 
    //load up RGB
-   for(int i = 0; i < num; i++)
-   {
-      file >> data[i];
-   }
+   file.read(reinterpret_cast<char *>(data), 4 * num);
 
    file.close();
 }
