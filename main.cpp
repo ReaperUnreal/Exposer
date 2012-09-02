@@ -21,7 +21,14 @@ void process(const char *infilename, const char *outfilename, int algorithm)
    //read, process, output
    Image im;
    im.FromRawFile(infilename);
-   //TODO: Process
+   switch(algorithm)
+   {
+	   case 1:
+		   {
+			   break;
+		   }
+	   default: break; //auto clamp at the end, so 0 is do nothing by default
+   }
    im.ToBMP(outfilename);
 }
 
