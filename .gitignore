@@ -14,3 +14,6 @@
 # Images
 *.raw
 *.bmp
+
+# The Executable
+exposer
