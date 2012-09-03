@@ -7,6 +7,7 @@ void printUsage()
    printf("0:\tSimple Clamp\n");
    printf("1:\tSaturate\n");
    printf("2:\tCompress\n");
+   printf("3:\tGamma Correction\n");
    printf("\n");
 }
 
@@ -34,6 +35,12 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 	   case 2:
 		   {
 			   CompressFilter f;
+			   f.filter(im);
+			   break;
+		   }
+	   case 3:
+		   {
+			   GammaFilter f(1.0f / 2.2f);
 			   f.filter(im);
 			   break;
 		   }

@@ -63,3 +63,23 @@ void CompressFilter::filter(Image &im)
 	if(max > 1.0f)
 		apply(im);
 }
+
+//class GammaFilter : public Filter
+GammaFilter::GammaFilter(float g) : gamma(g)
+{
+	if(gamma <= 0.0f)
+		gamma = 1.0f;
+}
+
+void GammaFilter::filter(Image &im)
+{
+	printf("gamma = %0.3f\n", gamma);
+	apply(im);
+}
+
+void GammaFilter::filterfunc(float *r, float *g, float *b)
+{
+	*r = powf(*r, gamma);
+	*g = powf(*g, gamma);
+	*b = powf(*b, gamma);
+}
