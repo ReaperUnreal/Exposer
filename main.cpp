@@ -5,6 +5,8 @@ void printUsage()
    printf("Usage: exposer <filename> <exposure algorithm number>\n\n");
    printf("Exposure algorithms:\n");
    printf("0:\tSimple Clamp\n");
+   printf("1:\tSaturate\n");
+   printf("2:\tCompress\n");
    printf("\n");
 }
 
@@ -25,6 +27,14 @@ void process(const char *infilename, const char *outfilename, int algorithm)
    {
 	   case 1:
 		   {
+			   SaturateFilter f;
+			   f.filter(im);
+			   break;
+		   }
+	   case 2:
+		   {
+			   CompressFilter f;
+			   f.filter(im);
 			   break;
 		   }
 	   default: break; //auto clamp at the end, so 0 is do nothing by default

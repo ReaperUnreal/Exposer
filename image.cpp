@@ -59,3 +59,18 @@ void Image::ToBMP(const char *filename) const
 
    out.WriteToFile(filename);
 }
+
+int Image::getWidth()
+{
+	return width;
+}
+
+int Image::getHeight()
+{
+	return height;
+}
+
+float *Image::getData()
+{
+	return data;
+}

@@ -9,6 +9,10 @@ public:
 
    void FromRawFile(const char *filename);
    void ToBMP(const char *filename) const;
+
+   int getWidth();
+   int getHeight();
+   float *getData();
 protected:
    int width;
    int height;
