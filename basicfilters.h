@@ -34,4 +34,17 @@ protected:
 	float gamma;
 };
 
+class GammaLFilter : public Filter
+{
+public:
+	GammaLFilter(float g);
+
+	virtual void filter(Image &im);
+
+protected:
+	virtual void filterfunc(Color &c);
+
+	float gamma;
+};
+
 #endif

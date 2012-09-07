@@ -83,3 +83,23 @@ void GammaFilter::filterfunc(float *r, float *g, float *b)
 	*g = powf(*g, gamma);
 	*b = powf(*b, gamma);
 }
+
+//class GammaLFilter : public Filter
+GammaLFilter::GammaLFilter(float g) : gamma(g)
+{
+	if(gamma <= 0.0f)
+		gamma = 1.0f;
+}
+
+void GammaLFilter::filter(Image &im)
+{
+	printf("gamma = %0.3f\n", gamma);
+	applyRGB(im);
+}
+
+void GammaLFilter::filterfunc(Color &c)
+{
+   Color hsl = c.RGBtoHSL();
+   hsl.l = powf(hsl.l, gamma);
+   c = hsl.HSLtoRGB();
+}
