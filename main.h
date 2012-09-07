@@ -29,7 +29,7 @@ const float EPSILON = 0.0001f;
 const float MAX_DIST = 1000.0f;
 const float MAX_RAND_DIVIDER = 1.0f / RAND_MAX;
 
-const int NUM_ALGORITHMS = 10;
+const int NUM_ALGORITHMS = 11;
 
 inline bool FloatEquals(float a, float b)
 {
@@ -99,4 +99,5 @@ inline float fmax(float a, float b)
 #include "basicfilters.h"
 #include "sigmoid.h"
 #include "log.h"
+#include "night.h"
 #endif

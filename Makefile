@@ -10,8 +10,8 @@ all: $(EXECUTABLE)
 debug: CFLAGS+=-g
 debug: $(EXECUTABLE)
 
-$(EXECUTABLE): basicfilters.o EasyBMP.o filter.o image.o log.o main.o sigmoid.o
-	$(CC) $(LFLAGS) basicfilters.o EasyBMP.o filter.o image.o log.o main.o sigmoid.o -o $(EXECUTABLE)
+$(EXECUTABLE): basicfilters.o EasyBMP.o filter.o image.o log.o main.o night.o sigmoid.o
+	$(CC) $(LFLAGS) basicfilters.o EasyBMP.o filter.o image.o log.o main.o night.o sigmoid.o -o $(EXECUTABLE)
 
 basicfilters.o: basicfilters.cpp
 	$(CC) $(CFLAGS) basicfilters.cpp
@@ -30,6 +30,9 @@ log.o: log.cpp
 
 main.o: main.cpp
 	$(CC) $(CFLAGS) main.cpp
+
+night.o: night.cpp
+	$(CC) $(CFLAGS) night.cpp
 
 sigmoid.o: sigmoid.cpp
 	$(CC) $(CFLAGS) sigmoid.cpp

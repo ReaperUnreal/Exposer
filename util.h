@@ -235,6 +235,19 @@ public:
       return Color(R, G, B);
    }
 
+   Color RGBtoXYZ()
+   {
+      float X =    0.49f * r +    0.31f * g +    0.20f * b;
+      float Y = 0.17697f * r + 0.81240f * g + 0.01063f * b;
+      float Z =    0.00f * r +    0.01f * g +    0.99f * b;
+
+      X /= 0.17697f;
+      Y /= 0.17697f;
+      Z /= 0.17697f;
+
+      return Color(X, Y, Z); //problem here that XYZ naming conflicts with YUV naming, oh well
+   }
+
    union
    {
       float r;
