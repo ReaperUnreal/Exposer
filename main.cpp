@@ -12,6 +12,7 @@ void printUsage()
    printf("5:\tConstant Sigmoid Compression\n");
    printf("6:\tConstant Sigmoid Lightness Compression\n");
    printf("7:\tConstant Sigmoid Average Lightness Compression\n");
+   printf("8:\tConstant Sigmoid Interpolated Lightness Compression\n");
    printf("\n");
 }
 
@@ -69,6 +70,12 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 	   case 7:
 		   {
 			   ConstSigmoidAverageFilter f(0.05f);
+			   f.filter(im);
+			   break;
+		   }
+	   case 8:
+		   {
+			   ConstSigmoidInterpolatedFilter f(0.2f);
 			   f.filter(im);
 			   break;
 		   }
