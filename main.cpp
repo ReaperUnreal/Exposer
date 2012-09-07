@@ -75,7 +75,7 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 		   }
 	   case 8:
 		   {
-			   ConstSigmoidInterpolatedFilter f(0.2f);
+			   ConstSigmoidInterpolatedFilter f(0.1f);
 			   f.filter(im);
 			   break;
 		   }
