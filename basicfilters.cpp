@@ -94,12 +94,12 @@ GammaLFilter::GammaLFilter(float g) : gamma(g)
 void GammaLFilter::filter(Image &im)
 {
 	printf("gamma = %0.3f\n", gamma);
-	applyRGB(im);
+	applyColor(im);
 }
 
 void GammaLFilter::filterfunc(Color &c)
 {
-   Color hsl = c.RGBtoHSL();
-   hsl.l = powf(hsl.l, gamma);
-   c = hsl.HSLtoRGB();
+   Color yuv = c.RGBtoYUV();
+   yuv.y = powf(yuv.y, gamma);
+   c = yuv.YUVtoRGB();
 }

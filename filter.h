@@ -12,7 +12,7 @@ public:
 	virtual void filter(Image &im);
 protected:
 	virtual void apply(Image &im);
-	virtual void applyRGB(Image &im);
+	virtual void applyColor(Image &im);
 	virtual void filterfunc(float *r, float *g, float *b);
    virtual void filterfunc(Color &c);
 };

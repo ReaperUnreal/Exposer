@@ -25,7 +25,7 @@ void Filter::apply(Image &im)
 	}
 }
 
-void Filter::applyRGB(Image &im)
+void Filter::applyColor(Image &im)
 {
 	int num = im.getWidth() * im.getHeight();
 	float *data = im.getData();

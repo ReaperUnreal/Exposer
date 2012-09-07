@@ -9,6 +9,8 @@ void printUsage()
    printf("2:\tCompress\n");
    printf("3:\tGamma Correction\n");
    printf("4:\tHSL Gamma Correction\n");
+   printf("5:\tConstant Sigmoid Compression\n");
+   printf("6:\tConstant Sigmoid Lightness Compression\n");
    printf("\n");
 }
 
@@ -48,6 +50,18 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 	   case 4:
 		   {
 			   GammaLFilter f(1.0f / 2.2f);
+			   f.filter(im);
+			   break;
+		   }
+	   case 5:
+		   {
+			   ConstSigmoidFilter f(1.0f);
+			   f.filter(im);
+			   break;
+		   }
+	   case 6:
+		   {
+			   ConstSigmoidLFilter f(1.0f);
 			   f.filter(im);
 			   break;
 		   }

@@ -78,6 +78,8 @@ public:
          }
 
          S = C / (1.0f - fabsf((2.0f * L) - 1.0f));
+         if(S > 1.0f)
+            S = 1.0f;
       }
       float H = hprime / 6.0f;
 
@@ -217,15 +219,33 @@ public:
       return Color(r1 + m, g1 + m, b1 + m);
    }
 
+   Color RGBtoYUV()
+   {
+      float Y =    0.299f * r   + 0.587f * g   + 0.114 * b;
+      float U = -0.14713f * r - 0.28886f * g   + 0.436 * b;
+      float V =     0.615 * r  - 0.51499 * g - 0.10001 * b;
+      return Color(Y, U, V);
+   }
+
+   Color YUVtoRGB()
+   {
+      float R = y                + 1.13983f * v;
+      float G = y - 0.39465f * u - 0.58060f * v;
+      float B = y + 2.03211f * u;
+      return Color(R, G, B);
+   }
+
    union
    {
       float r;
       float h;
+      float y;
    };
    union
    {
       float g;
       float s;
+      float u;
    };
    union
    {
