@@ -11,6 +11,7 @@ void printUsage()
    printf("4:\tHSL Gamma Correction\n");
    printf("5:\tConstant Sigmoid Compression\n");
    printf("6:\tConstant Sigmoid Lightness Compression\n");
+   printf("7:\tConstant Sigmoid Average Lightness Compression\n");
    printf("\n");
 }
 
@@ -62,6 +63,12 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 	   case 6:
 		   {
 			   ConstSigmoidLFilter f(1.0f);
+			   f.filter(im);
+			   break;
+		   }
+	   case 7:
+		   {
+			   ConstSigmoidAverageFilter f(0.05f);
 			   f.filter(im);
 			   break;
 		   }
