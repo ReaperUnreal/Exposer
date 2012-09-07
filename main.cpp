@@ -89,8 +89,12 @@ void process(const char *infilename, const char *outfilename, int algorithm)
 		   }
 	   case 10:
 		   {
-			   NightFilter f;
-			   f.filter(im);
+			   NightFilter nf;
+            CompressFilter cf;
+            GammaFilter gf(2.2f);
+            cf.filter(im);
+            gf.filter(im);
+			   nf.filter(im);
 			   break;
 		   }
 	   default: break; //auto clamp at the end, so 0 is do nothing by default
